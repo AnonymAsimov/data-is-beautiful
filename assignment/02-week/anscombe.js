@@ -1,4 +1,3 @@
-// Sample data for Anscombe's Quartet
 const anscombeData = {
     dataset1: [
         {x: 10, y: 8.04}, {x: 8, y: 6.95}, {x: 13, y: 7.58}, {x: 9, y: 8.81},
@@ -22,18 +21,18 @@ const anscombeData = {
     ]
 };
 
-// Set up the dimensions for each plot
+
 const width = 400;
 const height = 300;
 const margin = {top: 20, right: 20, bottom: 40, left: 40};
 
-// Create scales for the axes
+
 const xScale = d3.scaleLinear().domain([0, 20]).range([0, width]);
 const yScale = d3.scaleLinear().domain([0, 14]).range([height, 0]);
 
-// Function to create a scatter plot for each dataset
+
 function createScatterPlot(data, container) {
-    // Create an SVG container
+    
     const svg = d3.select(container)
         .append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -41,16 +40,16 @@ function createScatterPlot(data, container) {
         .append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    // Add X axis
+    
     svg.append("g")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(xScale));
 
-    // Add Y axis
+    
     svg.append("g")
         .call(d3.axisLeft(yScale));
 
-    // Add points with black color
+    
     svg.selectAll("circle")
         .data(data)
         .enter()
@@ -61,7 +60,7 @@ function createScatterPlot(data, container) {
         .style("fill", "#000");
 }
 
-// Render all the datasets
+
 createScatterPlot(anscombeData.dataset1, "#plot1");
 createScatterPlot(anscombeData.dataset2, "#plot2");
 createScatterPlot(anscombeData.dataset3, "#plot3");
