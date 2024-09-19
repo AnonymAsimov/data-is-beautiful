@@ -1,1 +1,1 @@
-# didtic-eureka
+# data visualization
