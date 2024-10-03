@@ -1,22 +1,17 @@
-// JSON 데이터 로드
 var jsonData = d3.json("anscombe.json");
 
 Promise.all([jsonData])
     .then(function(data) {
-        // 데이터 확인 (Console에 출력)
         console.log(data);
-
-        // 데이터 구조 접근: data[0]으로 JSON 내부 데이터 접근 가능
-        scatterPlot(data[0]["set1"]); // 첫 번째 데이터셋을 사용하여 산점도 그리기
-        barChart(data[0]["set2"]); // 두 번째 데이터셋을 사용하여 막대 차트 그리기
+        scatterPlot(data[0]["set1"]);
+        barChart(data[0]["set2"]);
     })
     .catch(function(error) {
         console.error("Error loading the JSON file: ", error);
     });
 
-// Scatter Plot 함수 정의
 function scatterPlot(inputDataset) {
-    var svg = d3.select("#scatterPlot")
+    var svg = d3.select("body")
         .append("svg")
         .attr("width", 400)
         .attr("height", 400);
@@ -47,15 +42,14 @@ function scatterPlot(inputDataset) {
     svg.append("text").text("y").attr("x", 0).attr("y", 160);
 }
 
-// Bar Chart 함수 정의
 function barChart(inputDataset) {
-    var svg = d3.select("#barChart")
+    var svg = d3.select("body")
         .append("svg")
         .attr("width", 400)
         .attr("height", 400);
 
     var xScale = d3.scaleBand()
-        .domain(inputDataset.map(function(d, i) { return i; })) // Index를 X 축 도메인으로 사용
+        .domain(inputDataset.map(function(d, i) { return i; }))
         .range([0, 300])
         .padding(0.1);
 
