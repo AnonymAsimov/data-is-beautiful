@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combined Health Data Visualization</title>
+    <script src="chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222222;
+            color: #eeeeee;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #eeeeee;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 800px;
+            background-color: #333333;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h2>Health Data (Heart Rate, Step Count, Sleep Duration)</h2>
+    <canvas id="combinedChart" width="1200" height="800"></canvas>
+
+    <script>
+        const ctx = document.getElementById('combinedChart').getContext('2d');
+
+        const heartRateData = [75, 80, 78, 82, 85, 90, 76];
+        const stepData = [12000, 15000, 18000, 13000, 14000, 16000, 17000];
+        const sleepData = [4.92, 5.17, 4.47, 5.48, 3.9, 7.17, 6.25];
+        const labels = ['Oct 4', 'Oct 5', 'Oct 6', 'Oct 7', 'Oct 8', 'Oct 9', 'Oct 10'];
+
+        const combinedChart = new Chart(ctx, {
+            type: 'bar', // Primary chart type
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Step Count',
+                        data: stepData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        type: 'bar',
+                        yAxisID: 'y1'
+                    },
+                    {
+                        label: 'Heart Rate (bpm)',
+                        data: heartRateData,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        type: 'line',
+                        borderWidth: 2,
+                        pointRadius: 5,
+                        pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                        tension: 0.4, // Smoothing the curve
+                        yAxisID: 'y2'
+                    },
+                    {
+                        label: 'Sleep Duration (hours)',
+                        data: sleepData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: true,
+                        type: 'line',
+                        yAxisID: 'y3'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y1: {
+                        type: 'linear',
+                        position: 'left',
+                        grid: {
+                            color: "rgba(200, 200, 200, 0.5)"
+                        },
+                        ticks: {
+                            color: '#eeeeee'
+                        }
+                    },
+                    y2: {
+                        type: 'linear',
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false, // Prevents grid overlap
+                        },
+                        ticks: {
+                            color: '#ff6384'
+                        }
+                    },
+                    y3: {
+                        type: 'linear',
+                        position: 'right',
+                        display: false, // Hidden axis for the area chart
+                    },
+                    x: {
+                        grid: {
+                            color: "rgba(200, 200, 200, 0.5)"
+                        },
+                        ticks: {
+                            color: '#eeeeee'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#eeeeee' // Legend label color
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
