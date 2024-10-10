@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Artistic Health Data Visualization</title>
+    <title>Health Data Visualization</title>
+    <!-- Include D3.js library -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Include Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
         body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #0e0e10;
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            color: black;
+        }
+        .axis path,
+        .axis line {
+            stroke: black;
+        }
+        .legend rect {
+            stroke-width: 1;
+            stroke: black;
+        }
+        .title {
+            text-anchor: middle;
+            font-size: 24px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-<div id="chart"></div>
+<svg id="chart"></svg>
 
-<!-- D3.js와 D3 Plot 라이브러리 -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.5"></script>
-
-<!-- 외부 JavaScript 파일 -->
+<!-- External JavaScript file -->
 <script src="external.js"></script>
 
 </body>
