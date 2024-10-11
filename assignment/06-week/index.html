@@ -13,6 +13,8 @@
             font-family: 'Roboto', sans-serif;
             background-color: white;
             color: black;
+            margin: 0;
+            padding: 0;
         }
         .axis path,
         .axis line {
@@ -27,11 +29,24 @@
             font-size: 24px;
             font-weight: bold;
         }
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .chart {
+            margin-bottom: 50px;
+        }
     </style>
 </head>
 <body>
 
-<svg id="chart"></svg>
+<div class="chart-container">
+    <!-- Upper Chart SVG -->
+    <svg id="chart-upper" class="chart"></svg>
+    <!-- Lower Chart SVG -->
+    <svg id="chart-lower" class="chart"></svg>
+</div>
 
 <!-- External JavaScript file -->
 <script src="external.js"></script>
