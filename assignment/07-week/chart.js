@@ -17,6 +17,30 @@ function barChart(data,columnInUse, fillColor){
     .attr("x",function(d,i){return i*20 })
     .attr("height",function(d){return yScale(d[columnInUse]) })
     .attr("fill",fillColor)
-}
-barChart(set1,"y","blue")
+    
+    .on("mouseover", function (e, d) {
+        d3.select(this).attr("fill", "black");
+        var x = d3.select(this).attr("x");
+        var y = d3.select(this).attr("y");
+        svg.append("text")
+          .attr("class", "tooltip")
+          .text(d[columnInUse])
+          .attr("x", x)
+          .attr("y", y - 5)
+          .attr("font-size", "14px")
+          .attr("fill", "red");
+      })
+  
+      .on("mouseout", function () {
+        d3.select(this).attr("fill", fillColor);
+        d3.selectAll(".tooltip").remove();
+      });
+
+    bars.append("title")
+      .text(function (d) {
+        return "The value is " + d[columnInUse];
+      });
+  }
+  
+  barChart(set1, "y", "blue");
 
