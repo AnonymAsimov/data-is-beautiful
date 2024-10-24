@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prison Population 2010 - 2020 Comparison</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+body {
+overflow: hidden;
+}
+ 
+body * {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+} 
+.map {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+}
+.mapboxgl-compare .compare-swiper-vertical {
+	background-color: black;
+}
+.mapboxgl-compare {
+    background-color: black;}
+</style>
+<div id="comparison-container">
+<div id="before" class="map">
+</div>
+
+<div id="after" class="map"></div>
+</div>
+<script>
+
+/*
+TODO:
+Open this page with your local server. You should see a blank page.
+1. set mapboxgl.accessToken as your unique access token from your mapbox account.
+2. set the style for the before container to be your 2010 data style
+3. set the style for the after container to be your 2020 data style
+NOTE: 1 of the ways you can view your style urls and access token:
+- in the main studio interface with a list of all your styles
+- click on the share icon to the right of each style 
+- scrolling down to Developer resources section
+- copying the Access Token and the Style URL found there.
+- Your default Access Token is the same across all your styles
+- each map has a unique Style URL
+
+4. add center coordinates for each map 
+- for a U.S. map, use the geographical center as a starting point. -99.107,41.726
+5. set zoom for each map - start around 4
+Refresh your page on your browser, 
+you should now see a basic map that allows you to swipe between 2010 and 2020 data.
+
+6. If anything doens't look good, go back and fix it in your mapbox styles. 
+
+7. INDEPENDENTLY - Add your choice of 2 additional features to this map to make it better:
+You can add a title or label using HTML to each side of the map, 
+add a legend by creating a legend image and inserting it with html.
+or add mapbox builtin interface elements like zoom, geolocation, search to the map.
+You can get a sense of basic elemetns by looking through this list of mapbox examples:
+zoom buttons https://docs.mapbox.com/mapbox-gl-js/example/navigation/
+scale https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
+fullscreen button https://docs.mapbox.com/mapbox-gl-js/example/fullscreen/
+search https://docs.mapbox.com/mapbox-search-js/example/add-search-box-to-map/
+locate user https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+set max bounds to restrict panning https://docs.mapbox.com/mapbox-gl-js/example/restrict-bounds/
+
+8. finish by publishing this map through your github repo as a github page. Submit the URL to courseworks.
+*/
+
+mapboxgl.accessToken = 'you access token goes here inside the quotation marks';
+const beforeMap = new mapboxgl.Map({
+container: 'before',
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+style: 'put your 2010 style here, keep it within these quotation marks',
+center: [],//put your map center coorinates inside square brackets as an array, in [lng,lat] format
+zoom: //put zoom here as a number, ranges betwen 1 and 22
+});
+ 
+const afterMap = new mapboxgl.Map({
+container: 'after',
+style: 'put your 2020 style here, keep it within these quotation marks',
+center: [],//put your map center coorinates inside square brackets as an array, in [lng,lat] format
+zoom: //put zoom here as a number, ranges betwen 1 and 22
+});
+ 
+// A selector or reference to HTML element
+const container = '#comparison-container';
+ 
+const map = new mapboxgl.Compare(beforeMap, afterMap, container, {
+// Set this to enable comparing two maps by mouse movement:
+// mousemove: true
+});
+</script>
+ 
+</body>
+</html>
