@@ -40,7 +40,7 @@ width: 100%;
 </style>
 
 <h1 style="text-align:center; position:absolute; width:100%; z-index:1; background-color:white;">
-  2010 vs 2020 Comparision Map
+  2010 VS 2020 COMPARSION MAP
 </h1>
 
 <div id="comparison-container" style="top:50px;">
@@ -53,6 +53,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYW50b252YW5rbyIsImEiOiJjbTJuZzRnNHEwNWxpMmlva
 
 const beforeMap = new mapboxgl.Map({
 container: 'before',
+
 style: 'mapbox://styles/antonvanko/cm2nf4p2o000y01pce4fv0598',
 center: [-99.107, 41.726],
 zoom: 4
@@ -60,12 +61,13 @@ zoom: 4
 
 const afterMap = new mapboxgl.Map({
 container: 'after',
-style: 'mapbox://styles/antonvanko/cm2ng75dh002b01qi5n24di39',
+style: 'mapbox://styles/antonvanko/cm2ni52ns006r01qjc18weebe',
 center: [-99.107, 41.726],
 zoom: 4
 });
 
 const container = '#comparison-container';
+
 
 const map = new mapboxgl.Compare(beforeMap, afterMap, container, {
 mousemove: true
