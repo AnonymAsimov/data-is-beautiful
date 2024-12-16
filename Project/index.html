@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data_Viz_Delivery_services_Cost Burden and Social Discomfort</title>
+    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="overlay2" class="overlay2">
+        <img src="Pic/First.png" alt="Overlay2 Image" class="overlay2-img">
+
+        <div class="overlay2-text">
+            <h1><strong>Cost Burden</strong> and <Strong>Social Discomfort</strong> 
+                of <Strong>Delivery Services</Strong></h1>
+            <h2>DATA VIS 4 ARCH, URB, HUM</h2>
+            <p>Kitae Kim & Jaejun Choi</p>
+
+
+            <button id="search-btn" class="search-btn">Search</button>
+        </div>
+    </div>
+
+    <div id="sidebar-toggle">
+        <button id="toggle-btn">Menu</button> 
+    </div>
+    <div id="heatmap-controls">
+        <button id="btn-aged-65">Aged 65 - </button>
+        <button id="btn-disability">Disability</button>
+        <button id="btn-work-50">Work_time 50 -</button>
+    </div>
+    <div id="delivery_fee_explain">
+        Click the "Corn" for more detailed Info
+    </div>
+    <div id="sidebar">
+        <div id="Title">
+        </div>
+         <div id="menu-toggle">
+        <button id="menu-btn">☰</button>
+        </div>
+    
+        <div id="menu-popup" class="hidden">
+        <div class="button-container">
+            <button id="btn0">Project</button>
+            <button id="btn1">Delivery Fee</button>
+            <button id="btn2">Delivery Usage by Borough</button>
+            <button id="btn3">Package Theft</button>
+        </div>
+        </div>
+        <div id="content">
+            <div id="content-little-title">Cost Burden and Social Discomfort of Delivery Services</div>
+            <div id="content-title"><strong>Cost Burden</strong> and <Strong>Social Discomfort</strong> 
+                of Delivery Services</div>
+                <p id="content-text2">
+                    The delivery system has become an almost essential service in modern society, and especially in large cities like New York, it is hard to find areas where delivery services are unavailable. However, certain individuals may face difficulties accessing these delivery services depending on their circumstances. This article will explore two main issues: the burden of delivery fees and the inability to receive deliveries due to specific situations.
+                </p>
+                <div id="table-container2">
+                    <div id="chart1"></div>
+                    <div id="chart2"></div>
+                </div>
+                <div id="table-container">
+                </div>
+               
+            <p id="content-text">
+                Delivery services are available in various forms, including packages, groceries, and meals, and these services often come with additional charges on top of the cost of the goods. While these additional costs are not a major burden for individuals with average incomes, they can be a significant financial strain for some, particularly those facing income inequality, leading to the inability to use delivery services. The average annual cost for using delivery services is $130, with a monthly average of about $13.
+            </p>
+            
+        </div>
+    </div>
+    
+
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script> 
+    <script src="script.js"></script>
+</body>
+</html>
